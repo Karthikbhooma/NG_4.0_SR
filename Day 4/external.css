@@ -1,0 +1,41 @@
+/* Universal selector  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: lightpink;
+}
+
+/* element selector */
+h1 {
+    color: navy;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    font-size: 16px;
+    color: darkgreen;
+    margin: 15px;
+    text-align: justify;
+    background-color: lightyellow;
+    padding: 15px;
+}
+
+/* class selector */
+.para {
+    box-shadow: 2px 2px 5px grey;
+}
+.para1 {
+    border: 2px solid black;
+    border-radius: 15px;
+}
+/* id selector */
+#heading {
+    font-family: 'Arial', serif;
+    font-weight: bold;
+    background-color: lime;
+}
+/* group selector */
+h1,p{
+    text-shadow: 2px 2px 4px red;
+}
