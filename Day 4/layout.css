@@ -1,0 +1,41 @@
+header{
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    /* padding: 10px 0; */
+}
+nav{
+    /* margin: 0; */
+    padding: 10px;
+    background-color: pink;
+}
+main{
+    /* padding: 20px; */
+    background-color: blue;
+}
+footer{
+    background-color: #333;
+    color: white;
+    /* text-align: center;
+    padding: 10px 0;
+    height: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0; */
+}
+aside{
+    background-color: lightgray;
+    /* padding: 15px;
+    margin: 10px 0; */
+}
+ul{
+    list-style-type: none;
+    background-color: lavender;
+    display: flex;
+    padding-left: 300px;
+}
+.card{
+    height: 100px;
+    width: 200px;
+    background-color: lightblue;
+}
