@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input:focus {
+      border-color: #667eea;
+    }
+
+    .password-toggle {
+      position: relative;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      right: 10px;
+      top: 35px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #555;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    .message {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      text-decoration: none;
+      color: #5a67d8;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+
+  <form id="loginForm">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" required />
+    </div>
+
+    <div class="form-group password-toggle">
+      <label>Password</label>
+      <input type="password" id="password" required />
+      <span class="toggle-btn" onclick="togglePassword()">Show</span>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <div class="message" id="message"></div>
+  </form>
+
+  <div class="link">
+    Don't have an account? <a href="registration.html">Register</a>
+  </div>
+</div>
+
+<script>
+  function togglePassword() {
+    const pwd = document.getElementById("password");
+    pwd.type = pwd.type === "password" ? "text" : "password";
+  }
+
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    message.innerHTML = "";
+
+    if (password.length < 8) {
+      message.innerHTML = "Invalid credentials";
+      message.className = "message error";
+      return;
+    }
+
+    // Frontend success simulation
+    message.innerHTML = "Login successful!";
+    message.className = "message success";
+
+    /*
+      BACKEND INTEGRATION:
+      Validate credentials via API and redirect user
+    */
+  });
+</script>
+
+</body>
+</html>

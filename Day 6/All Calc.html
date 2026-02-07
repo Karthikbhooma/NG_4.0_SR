@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d9d8d8;
+        }
+
+        .box {
+            background-color: rgb(253, 212, 162);
+            width: 550px;
+            border: 2px solid black;
+            text-align: center;
+            margin: auto;
+            margin-top: 40px;
+            padding: 20px;
+            box-shadow: 5px 5px 10px rgb(188, 188, 188);
+        }
+
+        input {
+            width: 400px;
+            height: 40px;
+            font-size: 16px;
+            margin: 8px;
+            padding-left: 10px;
+        }
+
+        button {
+            width: 200px;
+            height: 40px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: rgb(16, 16, 206);
+        }
+    </style>
+
+    <script>
+        function kmToMiles() {
+            let km = Number(document.getElementById("km").value);
+            document.getElementById("result1").innerText =
+                km > 0 ? (km * 0.621371).toFixed(2) + " Miles" : "Enter valid KM";
+        }
+
+        function kgToPounds() {
+            let kg = Number(document.getElementById("kg").value);
+            document.getElementById("result2").innerText =
+                kg > 0 ? (kg * 2.20462).toFixed(2) + " Pounds" : "Enter valid KG";
+        }
+
+        function simpleInterest() {
+            let p = Number(document.getElementById("p").value);
+            let r = Number(document.getElementById("r").value);
+            let t = Number(document.getElementById("t").value);
+
+            if (p > 0 && r > 0 && t > 0) {
+                let si = (p * r * t) / 100;
+                document.getElementById("result3").innerText =
+                    "Simple Interest = " + si;
+            } else {
+                document.getElementById("result3").innerText =
+                    "Enter valid values";
+            }
+        }
+
+        function mobileValidate() {
+            let mobile = document.getElementById("mobile").value;
+            let pattern = /^[6-9]\d{9}$/;
+
+            document.getElementById("result4").innerText =
+                pattern.test(mobile) ? "Valid Mobile Number" : "Invalid Mobile Number";
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>KM to Miles</h2>
+    <input type="number" id="km" placeholder="Enter KM">
+    <button onclick="kmToMiles()">Convert</button>
+    <p id="result1"></p>
+
+    <h2>KG to Pounds</h2>
+    <input type="number" id="kg" placeholder="Enter KG">
+    <button onclick="kgToPounds()">Convert</button>
+    <p id="result2"></p>
+
+    <h2>Simple Interest</h2>
+    <input type="number" id="p" placeholder="Principal">
+    <input type="number" id="r" placeholder="Rate of Interest">
+    <input type="number" id="t" placeholder="Time (Years)">
+    <button onclick="simpleInterest()">Calculate</button>
+    <p id="result3"></p>
+
+    <h2>Mobile Number Validator</h2>
+    <input type="text" id="mobile" placeholder="Enter Mobile Number">
+    <button onclick="mobileValidate()">Validate</button>
+    <p id="result4"></p>
+</div>
+
+</body>
+</html>
